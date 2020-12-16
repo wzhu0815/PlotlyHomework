@@ -1,4 +1,4 @@
-d3.json("/samples.json").then((data) => {
+d3.json("samples.json").then((data) => {
   var dataID = data.names;
   dataID.forEach((obj) => {
     var option = d3.select("#selDataset").append("option");
@@ -11,7 +11,7 @@ d3.json("/samples.json").then((data) => {
 function change() {
   var dropdownMenu = d3.select("#selDataset");
   var sampleId = dropdownMenu.node().value;
-  d3.json("/samples.json").then((data) => {
+  d3.json("samples.json").then((data) => {
     // metadata div
     var filterData = data.metadata.filter((fil) => fil.id == sampleId)[0];
     // console.log(filterData);
