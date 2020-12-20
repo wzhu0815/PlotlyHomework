@@ -28,9 +28,11 @@ function change() {
     var filBar = data.samples.filter((fil) => fil.id == sampleId)[0];
     var barKeys = filBar.otu_ids.map((obj) => "OTU " + obj);
     var barValues = filBar.sample_values;
+    var barLabels = filBar.otu_labels;
     trace1 = {
       y: barKeys.slice(0, 10).reverse(),
       x: barValues.slice(0, 10).reverse(),
+      text: barLabels.slice(0, 10).reverse(),
       type: "bar",
       orientation: "h",
     };
@@ -69,13 +71,17 @@ function change() {
       type: "indicator",
       mode: "gauge+number",
       gauge: {
-        axis: { range: [null, 10] },
+        axis: { range: [null, 9] },
         steps: [
-          { range: [0, 2], color: "rgb(230,225,200)" },
-          { range: [4, 6], color: "rgb(230,225,200)" },
-          { range: [8, 10], color: "rgb(230,225,200)" },
-          { range: [2, 4], color: "rgb(225,210,170)" },
-          { range: [6, 8], color: "rgb(225,210,170)" },
+          { range: [0, 1], color: "rgb(230,225,200)" },
+          { range: [2, 3], color: "rgb(230,225,200)" },
+          { range: [4, 5], color: "rgb(230,225,200)" },
+          { range: [6, 7], color: "rgb(230,225,200)" },
+          { range: [8, 9], color: "rgb(230,225,200)" },
+          { range: [1, 2], color: "rgb(225,210,170)" },
+          { range: [3, 4], color: "rgb(225,210,170)" },
+          { range: [5, 6], color: "rgb(225,210,170)" },
+          { range: [7, 8], color: "rgb(225,210,170)" },
         ],
       },
     };
